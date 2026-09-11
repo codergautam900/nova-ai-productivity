@@ -23,6 +23,21 @@ export default function Navbar({
   theme,
   onDemoOpen,
 }: NavbarProps) {
+  const handleNavClick = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (!href.startsWith("#")) return;
+
+    const targetId = href.slice(1);
+    const target = document.getElementById(targetId);
+
+    if (target) {
+      event.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.history.pushState(null, "", href);
+    }
+
+    setMobileMenuOpen(false);
+  };
+
   return (
     <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-white/80 backdrop-blur-xl supports-[backdrop-filter]:bg-white/70 dark:border-[var(--border)]/80 dark:bg-[color:rgba(8,11,19,0.7)] dark:supports-[backdrop-filter]:bg-[color:rgba(8,11,19,0.6)]">
       <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-4 py-4 sm:px-6 lg:px-8" aria-label="Main navigation">
@@ -41,11 +56,12 @@ export default function Navbar({
               <a
                 key={item.href}
                 href={item.href}
+                onClick={(event) => handleNavClick(event, item.href)}
                 className={[
                   "text-sm font-medium transition",
                   isActive
-                    ? "text-slate-900 dark:text-white"
-                 : "text-slate-800 hover:text-slate-950 dark:text-slate-200 dark:hover:text-white",
+                  ? "text-slate-900 dark:text-white"
+                  : "text-slate-800 hover:text-slate-950 dark:text-slate-200 dark:hover:text-white",
                 ].join(" ")}
               >
                 {item.label}
@@ -113,7 +129,7 @@ export default function Navbar({
              <a
                key={item.href}
                href={item.href}
-               onClick={() => setMobileMenuOpen(false)}
+               onClick={(event) => handleNavClick(event, item.href)}
                className={[
                  "rounded-xl px-3 py-2 text-base font-medium transition",
                  activeSection === item.href.replace("#", "")
