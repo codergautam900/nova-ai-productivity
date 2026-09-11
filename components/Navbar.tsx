@@ -29,13 +29,23 @@ export default function Navbar({
     const targetId = href.slice(1);
     const target = document.getElementById(targetId);
 
+    setMobileMenuOpen(false);
+
     if (target) {
       event.preventDefault();
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-      window.history.pushState(null, "", href);
-    }
 
-    setMobileMenuOpen(false);
+      const performScroll = () => {
+        target.scrollIntoView({
+          behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+          block: "start",
+        });
+        window.history.pushState(null, "", href);
+      };
+
+      requestAnimationFrame(() => {
+        window.setTimeout(performScroll, 10);
+      });
+    }
   };
 
   return (
