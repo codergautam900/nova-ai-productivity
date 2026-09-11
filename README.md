@@ -25,6 +25,21 @@ The experience blends marketing-page polish with product-dashboard realism. It i
 
 The implementation is intentionally a **frontend prototype**. It does not include a production backend, database layer, real authentication provider, or live AI service integration.
 
+## 📸 Interface Preview
+
+<div align="center">
+  <table>
+    <tr>
+      <td width="50%"><img src="./docs/screenshot/Screenshot 2026-09-11 235200.png" alt="NOVA home page" width="100%" /></td>
+      <td width="50%"><img src="./docs/screenshot/Screenshot 2026-09-11 235132.png" alt="NOVA workspace view" width="100%" /></td>
+    </tr>
+    <tr>
+      <td width="50%"><img src="./docs/screenshot/Screenshot 2026-09-11 234931.png" alt="NOVA dashboard" width="100%" /></td>
+      <td width="50%"><img src="./docs/screenshot/Screenshot 2026-09-11 234909.png" alt="NOVA login page" width="100%" /></td>
+    </tr>
+  </table>
+</div>
+
 ## 🎯 Project Goals
 
 NOVA was built to test and present a strong frontend product direction rather than a full platform implementation. The key goals were:
@@ -536,7 +551,7 @@ These are future improvements and are **not currently represented as completed f
 
 B.Tech Computer Science Engineering student and frontend/full-stack developer focused on building modern web applications and polished digital products.
 
-**Email:** [email-gateaspirant8650@gmail.com](mailto:email-gateaspirant8650@gmail.com)
+**Email:** [gateaspirant8650@gmail.com](mailto:email-gateaspirant8650@gmail.com)
 
 ---
 
